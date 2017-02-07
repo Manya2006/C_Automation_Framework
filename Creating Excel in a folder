@@ -1,0 +1,71 @@
+
+
+public void CreateExcel()
+
+       
+{
+
+Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+            
+if(xlApp==null)
+
+            
+{
+
+            
+    MessageBox.Show("excel is not properly installed");
+
+                
+return;
+
+            
+}
+
+            
+Excel.Workbook xlworkbook;
+
+            
+Excel.Worksheet xlworksheet;
+
+            
+object misValue =
+System.Reflection.Missing.Value;
+
+ 
+
+            
+xlworkbook = xlApp.Workbooks.Add(misValue);
+
+            
+xlworksheet = (Microsoft.Office.Interop.Excel.Worksheet)xlworkbook.Worksheets.get_Item(1);
+
+            
+xlworksheet.Cells[1, 1] = "ID";
+
+              
+xlworkbook.SaveAs ("C:\\Users\\u0oc75\\Documents\\ANBC changes\\e.xls");
+
+            
+xlworkbook.Close(true,
+misValue, misValue);
+
+           
+xlApp.Quit();
+
+ 
+
+           
+Marshal.ReleaseComObject(xlworksheet);
+
+           
+Marshal.ReleaseComObject(xlworksheet);
+
+           
+Marshal.ReleaseComObject(xlApp);
+
+ 
+
+       
+}
+
