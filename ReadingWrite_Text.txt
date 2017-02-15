@@ -1,0 +1,29 @@
+using System;
+using System.IO;
+
+namespace FileHandlingArticleApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (File.Exists("test.txt"))
+            {
+                string content = File.ReadAllText("test.txt");
+                // Only File name is specified not the absolute location . It is looking for the file in same location as exe.
+                //, C:\Users\u1hcadd\documents\visual studio 2015\Projects\ArchanaPractice\ArchanaPractice\bin\Debug\
+                Console.WriteLine("Current content of file:");
+                Console.WriteLine(content);
+            }
+            Console.WriteLine("Please enter new content for the file: type exit and press enter to finsh editing");
+            string newContent = Console.ReadLine();
+            while (newContent != "exit")
+            {
+                File.AppendAllText("test.txt", newContent + Environment.NewLine);
+                newContent = Console.ReadLine();
+
+            }
+        }
+    }
+}
+
